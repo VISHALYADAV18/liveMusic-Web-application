@@ -1,0 +1,27 @@
+<section class="myMusic-Collection">
+    <div class="content-box">
+        <% if(songs) {%>
+            <div class="uploadedSongs">
+                <% songs.forEach(function(item){ %>
+                    <div>
+                        <audio controls style="outline: none;">
+                            <source src="/getUploads/<%= item.songpath %>" type="audio/mpeg">
+                        </audio>
+                        <p style="font-size:1em;padding-left: 18px;padding-top: 4px;
+                        font-weight: 400;">Released by: <%= item.publisher %>
+                        </p>
+                    </div>
+                    <% }) %>
+            </div>
+
+        <% } else { %>
+                <div class="emptyMusic">
+                    <img src="/images/nomusic.svg" alt="" srcset="" height="420" width="600">
+                    <h2>FOUND :(</h2>
+                    <p>Don't worry just click the below button to upload your own music</p>
+                    <a href="/upload">Upload Now</a>
+                </div>
+
+        <% } %>
+    </div>
+</section>

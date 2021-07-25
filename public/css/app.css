@@ -1,0 +1,1557 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@200;300;400;500;600;800&display=swap');
+*,*::before,*::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+html
+{
+    scroll-behavior:smooth;
+    --primary-color:white;
+    --second-color:crimson;
+    --first-color:rgba(0, 0, 0, 0.9);
+    --font-first:'Poppins', sans-serif;
+    --font-second:'Kaushan Script', cursive;
+}
+body
+{
+    width:100%;
+    min-height:100vh;
+    font-family:var(--font-first);
+}
+/* scroll bar */
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+::-webkit-scrollbar-track
+{
+    background-color: var(--first-color);
+}
+::-webkit-scrollbar-thumb
+{
+    background-color: var(--primary-color);
+    border-radius:8px;
+    height:60px;
+}
+
+/* navbar and header design */
+header
+{
+    position: fixed;
+    width:100%;
+    height: 10vh;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 80px;
+    background-color: black;
+    z-index:12;
+}
+header .logo
+{
+    margin-left: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .logo .logoimage
+{
+    padding-right: 6px;
+}
+header .logo h2
+{
+    font-size: 1.4em;
+    font-weight: 400;
+    color:var(--primary-color);
+    font-family: var(--font-second);
+}
+header .logo h2 span
+{
+    color:var(--second-color); 
+    font-family: var(--font-first) !important;   
+}
+header nav
+{
+    display: block;
+}
+header nav .nav-items
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.nav-items li
+{
+    position: relative;
+    display: inline-block;
+}
+.nav-items li a
+{
+    font-size: 1em;
+    padding: 4px;
+    margin-left:24px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color:var(--primary-color);
+    transition:color 0.5s ease;
+}
+.nav-items li a:hover
+{
+    color:var(--second-color)
+}
+header .menu-btn
+{
+    position: relative;
+    width:40px;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.hamburger-menu
+{
+    width:40px;
+    height:4px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition:.5s ease-in-out;
+
+
+}
+.hamburger-menu::before,.hamburger-menu::after
+{
+    position: absolute;
+    content: '';
+    width:100%;
+    height:4px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition:.5s ease-in-out;
+}
+.hamburger-menu::before
+{
+    transform: translateY(-10px);
+}
+.hamburger-menu::after
+{
+    transform: translateY(10px);
+}
+/* Animatiom */
+.menu-btn.open .hamburger-menu
+{
+    transform: translateX(-30px);
+    background: transparent;
+}
+.menu-btn.open .hamburger-menu::before
+{
+    transform: rotate(45deg) translate(30px,-30px);
+}
+.menu-btn.open .hamburger-menu::after
+{
+    transform: rotate(-45deg) translate(30px,30px);
+}
+/* register and login page */
+.auth
+{
+    position:relative;
+    width: 100%;
+    height:100vh;
+    background-color: #f5f5f5;
+}
+.auth .container
+{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:840px;
+    height:540px;
+    display: flex;
+    background-color: white;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2),
+                -9px -9px 15px rgba(255, 255, 255, 0.05);
+}
+.container .images
+{
+    position: relative;
+    width:50%;
+    height:100%;
+    clip-path: polygon(0 0, 83% 0, 100% 50%, 85% 100%, 0 100%, 0% 50%);
+    background-image: url('../images/image1.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation:glow 1.5s  ease forwards;
+}
+@keyframes glow
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+.container .formBox
+{
+    position: relative;
+    width:50%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.container .formBox form
+{
+    position: relative;
+    width:100%;
+    padding: 4px 30px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.formBox h2
+{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing:1px;
+    margin: 10px 0px 18px;
+}
+.formBox .inputBox
+{
+    position: relative;
+    width:100%;
+    margin-bottom:16px;
+}
+.formBox .inputBox.active
+{
+    margin-bottom:24px !important;
+}
+.formBox .inputBox label
+{
+    display:block;
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-size:0.8em;    
+    color:rgba(0,0,0,0.7);
+    
+}
+.formBox .inputBox input::placeholder
+{
+    font-weight: 400;
+}
+/* styling show hide password */
+input
+{
+    position: relative;
+    width:100%;
+    height:40px;
+    background-color: rgb(243, 243, 243);
+    outline: none;
+    border:none;
+    padding:0px 6px;
+    font-weight:600;
+    font-size: 0.8em;
+    border-radius: 4px;
+    border:1px solid #d5dbd9;
+}
+input:focus
+{
+
+    border:1px solid var(--second-color);
+} 
+#toggle
+{
+  position:absolute;
+  top:50%;
+  right:12px;
+  transform: translateY(-50%);
+  height:28px;
+  width:28px;
+  background: url('/images/show.svg');
+  background-size: cover;  
+  cursor: pointer;
+}
+#toggle.hide
+{
+    background: url('/images/hode.svg');
+    background-size: cover; 
+}
+
+.formBox .btn-style
+{
+    width:160px;
+	height:40px;
+	background-color: transparent;
+	border:2px solid var(--second-color);
+	outline: none;
+	border-radius:20px;
+    font-size: 20px;
+    font-weight: 500;
+	text-align: center;
+	cursor: pointer;
+
+}
+.formBox .btn-style span
+{
+    position: relative;
+    padding-left: 8px;
+    font-weight: 400;
+    color: var(--second-color);
+}
+.formBox .btn-style span::after
+{
+    position: absolute;
+    content: '>';
+    width:8px;
+    height:8px;
+    top:0;
+    left:16px;
+}
+
+
+
+.formBox p
+{
+    font-size:15px;;
+    color:var(--first-color);
+    cursor: pointer;
+}
+.formBox p a
+{
+    color:var(--second-color);
+}
+#errorMessage
+{
+    color:red;
+}
+
+
+/* styling forgot passsowrd page */
+.forgotPassword
+{
+
+    width:100%;
+    height:100vh;
+    padding:0px 80px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.forgotPassword .forgotBox
+{
+    position:relative;
+    width:400px;
+    height: 500px;
+    border-radius: 18px;
+    background-color:var(--primary-color);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 9px 9px 25px rgba(0, 0, 0, 0.2),
+                -9px -9px 25px rgba(255, 255, 255, 0.05);
+    transition: all .3s ease-in-out;
+}
+.forgotPassword .forgotBox form
+{
+    position: relative;
+    width:100%;
+}
+.forgotBox .image img
+{
+    position: relative;
+    width:80px;
+    height:80px;
+    margin: 12px auto;
+}
+.forgotBox .catchyMessage
+{
+    margin-bottom: 60px;
+}
+.forgotBox .catchyMessage p:nth-child(1)
+{
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 0.8em;
+}
+.forgotBox .catchyMessage p:nth-child(2)
+{
+    font-size:15px;
+    font-weight: 400;
+    text-align: center;
+    color:rgba(0, 0, 0, 0.8);
+}
+.restBtn
+{
+    position: relative;
+    width:240px;
+    height:50px;
+    margin:20px auto;
+    background-color:var(--second-color);
+    color:var(--primary-color);
+	outline: none !important;
+	border-radius:30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* styling 404 page */
+.error
+{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error #sad
+{
+    display: inline-block;
+    transform: rotate(90deg);
+    padding:10px;
+    font-size: x-large;
+}
+
+.home
+{
+    width:100%;
+    height:100vh;
+    display: flex;
+}
+.home .left
+{
+    width:70%;
+    height:100%;
+    background-color: #f5f5f5;
+    transform: translateX(-100%);
+    animation: slideleft 1s linear forwards;
+}
+@keyframes slideleft
+{
+    0%
+    {
+        transform: translateX(-100%);
+    }
+    100%
+    {
+        transform: translateX(0);
+    }
+}
+.home .right
+{
+    width: 0px;
+    height:100%;
+    background:var(--second-color);
+    animation: slideright 1s linear forwards;
+    animation-delay: 1s;
+}
+@keyframes slideright
+{
+    0%
+    {
+        width: 0px;
+    }
+    100%
+    {
+        width: 30%;
+    }
+}
+.home .headset
+{
+    position: absolute;
+    right:140px;
+    top:50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    animation:headset 1s linear forwards;
+    animation-delay: 2s;
+}
+@keyframes headset
+{
+    0%
+    {
+        opacity:0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+.home .home-content
+{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    padding: 4px 80px;
+
+}
+.home-content .text-1
+{
+    font-size: 3.5em;
+    font-family: var(--font-second);
+}
+.home-content .text-1 span
+{
+    padding-left: 2px;
+    font-size: 1em !important;
+    font-family: var(--font-first);
+    color:var(--second-color);
+}
+.home-content .text-2
+{
+    font-weight: 400;
+    font-size: 28px;
+    margin:4px 0px 0px 8px;
+}
+.home-content .text-3
+{
+    font-weight: 400;
+    font-size: 22px;
+    margin:4px 0px 0px 8px;
+}
+.home-content .text-2 span,.home-content .text-3 span
+{
+    font-weight: 400;
+    color:var(--second-color);
+}
+/* styling home button */
+.home-content .joinBtn
+{
+    position: relative;
+    width:240px;
+    height:50px;
+    margin:50px 0px 0px 8px;
+	background-color:var(--second-color);
+	outline: none;
+	border-radius:30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.home-content .joinBtn a
+{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    color:var(--primary-color);
+}
+/* styling intro expand */
+.home .intro-expand
+{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:30px;
+    width:100%;
+    padding: 0px 80px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.intro-expand h2
+{
+    display:inline-block;
+    font-size:18px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color:var(--first-color);
+}
+.intro-expand span
+{
+    display: block;
+    width: 20px;
+    height:20px;
+    border-bottom:3px solid var(--second-color);
+    border-right: 3px solid var(--second-color);
+    transform: rotate(45deg);
+    margin: -5px;
+    animation:fallingarrow 1.5s linear infinite;
+}
+.intro-expand span:nth-child(2)
+{
+    animation-delay: .2s;
+}
+.intro-expand span:nth-child(3)
+{
+    animation-delay: .4s;
+}
+.intro-expand span:nth-child(4)
+{
+    animation-delay: .6s;
+}
+@keyframes fallingarrow
+{
+    0%
+    {
+        opacity: 0;
+    }
+    50%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+/* styling whyus page */
+.whyus
+{
+    width:100%;
+    height:100vh;
+    padding:0px 80px;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.whyus .title h2,.aboutus .title h2
+{
+    font-size: 2.2em;
+    text-align: center;
+    font-weight: 500;
+}
+.whyus .title h2 span,.aboutus .title h2 span
+{
+    color:var(--second-color)
+}
+.whyus .options
+{
+    display:flex;
+    justify-content: space-around;
+}
+.options .card
+{
+    position: relative;
+    width:340px;
+    height:420px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+.options .card.active
+{
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.3),
+    -9px -9px 15px rgba(255, 255, 255,0.05);
+    transform: scale(1.04);
+}
+.options .card::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:#ffcd44;
+    clip-path: circle(8% at 50% 100%);
+    border-bottom: 2px solid var(--second-color);
+    z-index: -5;
+    transition: 800ms ease-in-out;
+
+}
+.options .card:hover.card::before
+{
+    clip-path: circle(120% at 50% 100%);
+    border-top: 2px solid var(--second-color);
+}
+.options .card:hover
+{
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.3),
+    -9px -9px 15px rgba(255, 255, 255,0.05);
+    transform: scale(1.04);
+}
+
+.options .card .logo
+{
+    position: relative;
+    width:160px;
+    height:160px;
+    background:black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .logo::before
+{
+    content:'';
+    position: absolute;
+    width:80%;
+    height:80%;
+    border-radius: 50%;
+    background-color:black;
+    border: 4px solid var(--primary-color);
+}
+.options .card .logo span
+{
+    position: relative;
+    font-size: 2.5em;
+    color:var(--second-color);
+    z-index: 2;
+}
+.card .data
+{
+    position: relative;
+    padding-top:60px;
+}
+.card .data h2
+{
+    font-size:22px;
+    font-weight:600;
+    text-align: center;
+}
+.card .data p
+{
+    padding-top:12px;
+    font-size:16px;
+    font-weight: 400;
+    text-align: center;
+    color:rgba(0, 0, 0, 0.8)
+}
+/* styling about us page */
+.aboutus
+{
+    width:100%;
+    height:100vh;
+    padding:80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #f5f5f5;
+}
+.aboutus .title
+{
+    margin-bottom: 10px;
+}
+.aboutus .aboutcontent
+{
+    position:relative;
+    width:100%;
+    height:520px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+
+}
+.aboutus .aboutcontent p
+{
+    position: relative;
+    font-size: 1.2em;
+    font-weight: 400;
+    max-width: 480px;
+    z-index: 2;
+}
+.aboutus .aboutcontent p::before
+{
+    position: absolute;
+    content: '';
+    width:410px;
+    height:410px;
+    top:-50%;
+    left:20px;
+    background-image: url('../images/svgpattern.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    z-index: -1;
+}
+.aboutus .aboutcontent p span
+{
+    color:var(--second-color);
+}
+.aboutcontent .hearphone
+{
+    position: relative;
+    width:520px;
+    height:100%;
+    cursor: pointer;
+}
+/* footer design */
+footer
+{
+    width: 100%;
+    background-color:var(--first-color);
+    color: var(--primary-color);
+    padding: 0px 80px;
+}
+footer .mainContent
+{
+    display: flex;
+    padding-top:15px;
+}
+.mainContent .Box
+{
+    flex-basis: 50%;
+    padding: 15px 10px;
+}
+.mainContent .summary h2
+{
+    font-size: 1.5em;
+    text-align: center;
+    font-family: var(--font-second);
+}
+.summary h2 img
+{
+    display: inline-block;
+    margin-right: 10px;
+}
+.mainContent .summary p:nth-child(2)
+{
+    padding-top:18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+}
+.mainContent .summary p:nth-child(3)
+{
+    margin-top: 4px;
+    font-size:18px;
+    font-weight: 200;
+}
+.mainContent .contact h2,.social h2
+{
+    font-size: 1.5em;
+    text-align: center;
+}
+.mainContent .summary h2 span,.contact h2 span,.social h2 span
+{
+    color:var(--second-color);
+    font-family: var(--font-first) !important;
+}
+.contact .phone
+{
+    padding-top:18px;
+    text-align: center;
+}
+.contact .email
+{
+    padding-top: 8px;
+    text-align: center;
+}
+.contact .phone .fa-phone,.email .fa-envelope
+{
+    font-size:1.2em;
+    margin-right:10px;
+    line-height: 1.2em;
+}
+.contact .phone .text,.email .text
+{
+    font-size: 1em;
+    font-weight: 200;
+}
+.social .icons
+{
+    padding-top:18px;
+    display: flex;
+    justify-content:center;
+}
+.social .icons a
+{
+    font-size: 2.2em;
+    margin:0px 20px;
+}
+.social .icons a i
+{
+    transition: .5s ease-in-out;
+    color:var(--primary-color);
+}
+.social .icons a:hover i.fa-instagram
+{
+    transform: scale(1.2);
+    background: linear-gradient(45deg, #405de6, 
+    #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.social .icons a:hover i.fa-twitter,.social .icons a:hover i.fa-facebook
+{
+    transform: scale(1.2);
+    color:rgb(29,161,242);
+}
+.copyright
+{
+    padding-bottom: 12px;
+}
+.copyright p
+{
+    text-align: center;
+    font-size:18px;
+    font-weight: 200;
+}
+.copyright p span
+{
+    font-family: var(--font-second);
+    color: var(--second-color);
+    font-size:20px;
+}
+.copyright p img
+{
+    display: inline-block;
+}
+
+/* Styling my music */
+.music-content
+{
+    position:relative;
+    width:100%;
+    height:100vh;
+    padding:80px 80px ;
+    background-color: #f5f5f5;
+
+}
+.music-content h1
+{
+    font-size: 1em;
+    font-weight: 400;
+}
+.music-content .musicCards
+{
+    position: relative;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.musicCards .card
+{
+    position:relative;
+    width:400px;
+    height: 500px;
+    border-radius: 18px;
+    background-color:#f5f5f5;
+    overflow: hidden;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2),
+                -9px -9px 15px rgba(255, 255, 255, 0.05);
+    transition: all .3s ease-in-out;
+}
+.card .top_bar
+{
+    width:100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card .top_bar button{
+    z-index:10;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: 500;
+    border:none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#f5f5f5;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2),
+    -9px -9px 15px rgba(255, 255, 255, 0.05);
+    transition:all .3s ease-in-out;
+}
+.card .top_bar .options
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-80px);
+    transition:all .3s ease-in-out;
+}
+.card .top_bar .options.anime
+{
+    transform: translateY(0px);
+}
+.card .top_bar .options button
+{
+    margin: 0 10px;
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .musicData
+{
+    position: relative;
+    margin-top:15px;
+    width:100%;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card .musicData .img 
+{
+    height:180px;
+    width:180px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2),
+    -9px -9px 15px rgba(255, 255, 255, 0.05);
+
+}
+.card .musicData .img img
+{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    background-position: center;
+}
+.imgRotation
+{
+    animation: rotate 3s linear infinite;
+}
+@keyframes rotate
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    25%
+    {
+        transform: rotate(90deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+    }
+    75%
+    {
+        transform: rotate(270deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+
+}
+.card .musicData .artist
+{
+    position: relative;
+    width:100%;
+    margin-top: 8px;
+}
+.card .musicData .artist p:nth-child(1)
+{
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    padding: 2px;
+}
+.card .musicData .artist p:nth-child(2)
+{
+    font-size: 18px;
+    font-weight: 300;
+    padding: 2px;
+    text-align: center;
+}
+.card .duration
+{
+    position: relative;
+    padding: 0px 30px;
+}
+.card .duration .time
+{
+    position: relative;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.duration .time span
+{
+    font-size: 16px;
+    font-weight: 500;
+}
+.card .duration input[type="range"]
+{
+    /* -webkit-appearance: none; */
+    outline: none;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height: 2px;
+}
+/* .duration input[type="range"]::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    height:15px;
+    width:15px;
+    background: var(--second-color);
+    border-radius: 50%;
+    cursor: pointer;
+} */
+.card .controls_buttons
+{
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+.controls_buttons .main_buttons
+{
+    margin-top:8px;
+    display: flex;
+}
+.controls_buttons .main_buttons button
+{
+    height:52px;
+    width:52px;
+    font-size:2em;
+    font-weight: 500;
+    border-radius: 50%;
+    margin: 0px 15px;
+    cursor: pointer;
+    border:none;
+    outline:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#f5f5f5;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2),
+    -9px -9px 15px rgba(255, 255, 255, 0.05);
+    transition: all .3s ease-in-out;
+}
+.controls_buttons .main_buttons #playBtn
+{
+    background-color:var(--first-color);
+    color:  var(--second-color);
+}
+.card button:hover
+{
+    background-color:var(--first-color);
+    color:  var(--second-color);
+}
+.activeNow
+{
+    background-color:var(--first-color) !important;
+    color:  var(--second-color);
+}
+
+/* stylish email send successfully */
+.emailBox
+{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+.emalSent-card
+{
+    position: relative;
+    width:400px;
+    height:500px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+    border-radius:18px;
+    box-shadow: 9px 9px 25px rgba(0, 0, 0, 0.2),
+                -9px -9px 25px rgba(255, 255, 255, 0.05);
+}
+.emalSent-card .result
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.emalSent-card .result .checkIcon
+{
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:60px;
+    height:60px;
+    border: 3px solid #1ed11e;
+    border-radius: 50%;
+}
+.result .checkIcon .fa-check
+{
+    color:#5cb85c;
+}
+.emalSent-card .message p
+{
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+    color:rgba(0, 0, 0, 0.6);
+}
+.emalSent-card .message p span
+{
+    font-weight: 500;
+    color:var(--second-color);
+}
+
+/* upload section design */
+.upload-section
+{
+    width:100%;
+    height:100vh;
+    background-color:white;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+}
+
+.upload-section .uploadForm
+{
+    position: relative;
+    margin-top: 140px;
+    width:480px;
+}
+.uploadForm form h2
+{
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 600;
+}
+.uploadForm form p
+{
+    font-size: 1em;
+    text-align: center;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+.uploadForm form .upload-box
+{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width:360px;
+    height:180px;
+    background-color: #f5f5f5;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2),
+    -9px -9px 15px rgba(255, 255, 255, 0.05);
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+.uploadForm form .upload-box::before
+{
+    position: absolute;
+    content: '';
+    width:320px;
+    height: 144px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 22px;
+    border:2px dashed rgb(43, 140, 179);
+}
+.upload-box img
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    z-index: 8;
+}
+.upload-box:hover img
+{
+    animation: updown 1s linear infinite;
+}
+@keyframes updown
+{
+    0%
+    {
+        transform: translateY(0px);
+    }
+    20%
+    {
+        transform: translateY(-5px);
+    }
+    40%
+    {
+        transform: translateY(-10px);
+    }
+    60%
+    {
+        transform: translateY(-5px);
+    }
+    80%
+    {
+        transform: translateY(-2px);
+    }
+    100%
+    {
+        transform: translateY(0px);
+    }
+}
+.upload-box input[type="file"]
+{
+    width:220px;
+    height:40px;
+}
+.uploadForm form .upload-btn
+{
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    width:160px;
+    height:40px;
+    font-size:1.2em;
+    font-weight: 500;
+    color: white;
+    border:none;
+    outline: none;
+    border-radius: 20px;
+    background-color: var(--first-color);
+    margin:10px 0px;
+    cursor: pointer;
+    border:2px solid var(--second-color);
+}
+.uploadedSongs
+{
+    position: relative;
+    padding: 0px 80px;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(4,400px);
+    grid-row-gap: 20px;
+    margin-top: 40px;
+}
+
+.myMusic-Collection
+{
+    width:100%;
+    height:100vh;
+    padding: 80px 0px;
+}
+.myMusic-Collection .content-box
+{
+    position: relative;
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+}
+.content-box .emptyMusic
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.emptyMusic h2
+{
+    font-size:3em;
+    text-align: center;
+    color:#0C1A44;
+    font-weight: 800;
+}
+.emptyMusic p
+{
+    text-align: center;
+    margin-top:40px;
+    font-size:1em;
+    font-weight: 400;
+}
+.emptyMusic a
+{
+    width: 160px;
+    height:40px;
+    margin-top: 20px;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0C1A44;
+    color:white;
+    border-radius: 20px;
+}
+
+/* styling pricing page */
+.pricingPage
+{
+    width:100%;
+    height:100vh;
+    padding:80px 80px;
+}
+.pricingPage .priceBox
+{
+    position: relative;
+    width:100%;
+}
+.priceBox h2
+{
+    font-size: 1.6em;
+    font-weight: 600;
+    color:#0C1A44;
+    text-align: center;
+}
+.priceBox p
+{
+    padding-top: 8px;
+    font-size:1em;
+    font-weight: 400;
+    color: #192547;
+    text-align: center;
+}
+.pricingPage .plans
+{
+    width: 100%;
+    height:600px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.pricingPage .plans .AllPack
+{
+    width:340px;
+    height:500px;
+    background-color: #f5f5f5;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2),
+                -9px -9px 15px rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: .5s ease-in-out;
+}
+.plans .AllPack.active
+{
+    transform: scale(1.06);
+}
+.plans .AllPack:hover
+{
+    transform: scale(1.06);
+}
+.AllPack h2
+{
+    position: relative;
+    text-align: center;
+    padding: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+.AllPack h2::before
+{
+    position: absolute;
+    content: '';
+    top:98%;
+    left:50%;
+    transform: translateX(-50%);
+    width:100px;
+    height:4px;
+    background-color:#ffcd44;
+    border-radius: 20px;
+}
+.AllPack span
+{
+    position: relative;
+    display: block;
+    text-align: center;
+    padding:40px 0px 20px 0px;
+    font-size: 3.4em;
+    font-weight: 500;
+}
+.AllPack span sup
+{ 
+    font-size:24px;
+    font-weight: 400;
+    padding: 4px;
+}
+.AllPack span sub
+{
+    font-size:22px;
+    font-weight: 400;
+}
+.AllPack form 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.AllPack form button
+{
+    width:160px;
+    height:50px;
+    border: 2px solid #0C1A44;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.AllPack form button:hover
+{
+    background-color: #0C1A44;
+    color: white;
+}
+.AllPack form button.active
+{
+    cursor: not-allowed;
+}
+.AllPack p
+{
+    position: relative;
+    padding-top: 40px;
+    text-align: center;
+}
+.AllPack p::before
+{
+    position: absolute;
+    content: '';
+    width:120px;
+    height:120px;
+    top:160px;
+    left:-40px;
+    background-color: #0C1A44;
+    border-radius: 50%;
+}
+.AllPack p span i
+{
+    padding: 0px 6px;
+}
+.AllPack p span:nth-child(1),span:nth-child(2)
+{
+    font-size: 0.9em;
+    padding: 4px 0px;
+}

@@ -1,0 +1,47 @@
+<!-- only logged in users can view this page -->
+<section class="music-content">
+    <h1 style="text-align: center;">Welcome, <%= CurrentUser.username %></h1>
+    <div class="musicCards">
+        <div class="card">
+            <!-- loop,mute etc -->
+            <span data-musicdata="<%= JSON.stringify(musicdata) %>" id="data"></span>
+            <div class="top_bar">
+                <button onclick="sidebar()"><i class='bx bx-chevron-right'></i></button>
+                <div class="options">
+                    <button onclick="random()" title="shuffle"><i class='bx bx-shuffle'></i></button>
+                    <button onclick="mute()" title="mute" id="volumeoff"><i class='bx bxs-volume-mute'></i></button>
+                    <button onclick="loop()" title="loop-on" id="repeat"><i class='fa fa-repeat'></i></button>
+                </div>
+                <button><i class='bx bx-menu-alt-right'></i></button>
+            </div>
+
+            <!-- music img song name,song artist -->
+            <div class="musicData">
+                <div class="img">
+                    <img src="" alt="songimg" id="songimg">
+                </div>
+                <div class="artist">
+                    <p id="song"></p>
+                    <p id="singer"></p>
+                </div>
+            </div>
+            <div class="duration">
+                <div class="time">
+                    <span id="updateTime">0:00</span>
+                    <span id="totalTime">0:00</span>
+                </div>
+                <input type="range" name="" id="seekslider" min="0" max="100" value="0" step="1"  >
+            </div>
+            <!-- music controls....working -->
+            <div class="controls_buttons">
+                <div class="main_buttons">
+                    <!-- <button id="volume"><i class='bx bxs-volume' ></i></button> -->
+                    <button id="previousBtn"  class='bx bx-skip-previous' title="previous"></button>
+                    <button id="playBtn" class='bx bx-play' title="play/pause"></button>
+                    <button id="nextBtn" class='bx bx-skip-next' title="next"></button>
+                    <!-- <button id="favourites"><i class='bx bxs-heart'></i></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

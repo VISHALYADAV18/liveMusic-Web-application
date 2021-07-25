@@ -1,0 +1,32 @@
+<section class="upload-section"> 
+    <div class="uploadForm">
+        <form action="/postUpload" method="POST" enctype="multipart/form-data">
+            <% if(messages.error){ %>
+                <p id="errorMessage" class="text-red-600 text-sm text-center"><%= messages.error %></p>
+            <% } %>
+            <h2>Upload Your Music Files</h2>
+            <p>File should be in .mp3 format</p>
+            <div class="upload-box">
+                <img src="/images/upload2.png" alt="upload">
+                <input type="file" name="uploadSong" accept="audio/*">
+            </div>
+             <input type="submit" value="upload" class="upload-btn">
+        </form>
+    </div>
+    <hr>
+    <div class="uploadedSongs">
+        <% if(songs){ %>
+            <% songs.forEach(function(item){ %>
+               <div>
+                <audio controls style="outline: none;">
+                    <source src="/getUploads/<%= item.songpath %>" type="audio/mpeg">
+                </audio>
+                <p style="font-size:1em;padding-left: 18px;padding-top: 4px;
+                font-weight: 400;">Released by: <%= item.publisher %></p>
+               </div>
+            <% }) %>
+        <% } %>
+    </div>
+    
+
+</section>

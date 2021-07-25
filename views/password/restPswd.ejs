@@ -1,0 +1,23 @@
+<section class="forgotPassword">
+        <div class="forgotBox">
+            <% if(messages.error){ %>
+                <span id="errorMessage" class="text-red-600 text-base mb-8">** <%= messages.error %> **</span>
+            <% } %>
+            <form action="/forgotPassword" method="POST" autocomplete="off">
+                <div class="image">
+                    <img src="/images/forgotpassword.png" alt="" srcset="" width="80" height="80">
+                </div>
+                <div class="catchyMessage">
+                    <p>Forgot Your Password?</p>
+                    <p>
+                        That's Okay.<br>
+                        Just enter the email address you've used to register.Our team will send you the reset instructions :)
+                    </p>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="resetemail" placeholder="enter your email">
+                </div>
+                <button type="submit" class="restBtn">Reset Password</button>
+            </form>
+        </div>
+</section>
